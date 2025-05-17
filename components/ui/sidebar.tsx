@@ -1,16 +1,39 @@
 'use client'
 
 import {
-  Home,
   FileText,
+  Newspaper,
   Settings,
-} from 'lucide-react'
+  Link,
+  NetworkIcon,
+  Share2,
+  Puzzle,
+  CreditCard,
+  Users,
+  HelpCircle,
+  RefreshCcw,
+  MessageCircle,
+  User,
+  Bell,
+  InfoIcon,
+  ScrollText,
+  CircleDollarSign,
+  Star
+} from 'lucide-react';
 import { cn } from '@/lib/utils'
 
 const sidebarItems = [
-  {name: "Dashboard", icon: Home, href: "/"},
-  {name: "Articles", icon: FileText, href: "#"},
-  {name: "Settings", icon: Settings, href: "#"},
+  {name: "Articles", icon: ScrollText, href: "#"},
+  {name: "Auto Blog", icon: Settings, href: "#"},
+  {name: "Internal Links", icon: NetworkIcon, href: "#"},
+  {name: "Free Backlinks", icon: Share2, href: "#"},    
+  {name: "Integrations", icon: Puzzle, href: "#"},
+  {name: "Subscription", icon: Star, href: "#"}, 
+  {name: "Affiliate Program", icon: CircleDollarSign, href: "#"},
+  {name: "Help Center", icon: InfoIcon, href: "#"},
+  {name: "Updates", icon: Bell, href: "#"},
+  {name: "Live Chat Supoort", icon: MessageCircle, href: "#"},
+  {name: "Profile", icon: User, href: "#"},
 ]
 
 export default function Sidebar() {
