@@ -9,10 +9,6 @@ import {
   NetworkIcon,
   Share2,
   Puzzle,
-  CreditCard,
-  Users,
-  HelpCircle,
-  RefreshCcw,
   MessageCircle,
   User,
   Bell,
@@ -53,50 +49,59 @@ const sidebarItems = [
   {name: "Profile", icon: User, href: "#"},
 ]
 
-export default function Sidebar() {
-  const [expandedItem, setExpandedItem] = useState(null)
+export default function Sidebar({setActiveSubPage }: { setActiveSubPage: (page: string) => void }) {
+  const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
-  const toggleSubItems = (itemName) => {
-    setExpandedItem(expandedItem === itemName ? null : itemName)
+  const toggleSubItems = (name: string) => {
+    setExpandedItem(expandedItem === name ? null : name)
   }
 
-  return (
-    <div className="w-64 bg-white border-r h-screen fixed overflow-y-auto">
+    return (
+    <aside className="w-64 bg-white border-r h-screen fixed overflow-y-auto">
       <h1 className="p-4 font-bold text-lg border-b">My Dashboard</h1>
+
       <nav className="flex flex-col p-4 gap-2">
         {sidebarItems.map((item) => (
           <div key={item.name}>
+            {/* top-level button */}
             <button
-              onClick={() => item.subItems ? toggleSubItems(item.name) : null}
+              onClick={() =>
+                item.subItems ? toggleSubItems(item.name) : setActiveSubPage(item.name)
+              }
               className={cn(
-                "flex items-center justify-between w-full p-2 text-sm rounded-md hover:bg-gray-100",
-                expandedItem === item.name && "bg-gray-100"
+                'flex items-center justify-between w-full p-2 text-sm rounded-md hover:bg-gray-100',
+                expandedItem === item.name && 'bg-gray-100'
               )}
             >
               <div className="flex items-center gap-2">
-                <item.icon className="w-4 h-4 mr-2" />
+                <item.icon className="w-4 h-4" />
                 {item.name}
               </div>
-              {item.subItems && (
-                expandedItem === item.name ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />
-              )}
+              {item.subItems &&
+                (expandedItem === item.name ? (
+                  <ChevronUp className="w-4 h-4" />
+                ) : (
+                  <ChevronDown className="w-4 h-4" />
+                ))}
             </button>
+
+            {/* sub-items */}
             {item.subItems && expandedItem === item.name && (
               <div className="ml-6 mt-1 flex flex-col gap-1">
-                {item.subItems.map((subItem) => (
-                  <a
-                    key={subItem.name}
-                    href={subItem.href}
-                    className="text-sm text-gray-600 hover:text-black"
+                {item.subItems.map((sub) => (
+                  <button
+                    key={sub.name}
+                    onClick={() => setActiveSubPage(sub.name)}
+                    className="text-left text-sm text-gray-600 hover:text-black py-0.5"
                   >
-                    {subItem.name}
-                  </a>
+                    {sub.name}
+                  </button>
                 ))}
               </div>
             )}
           </div>
         ))}
       </nav>
-    </div>
+    </aside>
   )
 }
