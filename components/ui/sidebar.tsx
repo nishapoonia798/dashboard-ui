@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 const sidebarItems = [
   {name: "Dashboard", icon: Home, href: "/"},
   {name: "Articles", icon: FileText, href: "#"},
-  {name: "Settings", icon: Settings, href: ""#},
+  {name: "Settings", icon: Settings, href: "#"},
 ]
 
 export default function Sidebar() {
