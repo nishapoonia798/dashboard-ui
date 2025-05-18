@@ -1,7 +1,10 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
-
+import GeneratedArticles
+  from '@/app/dashboard/generated-articles/GeneratedArticles';
+import CreateArticle from '@/app/dashboard/generated-articles/CreateArticle';
+import { usePathname } from 'next/navigation';
 import {
   FileText,
   Newspaper,
@@ -53,6 +56,11 @@ type SidebarProps = {
   setActiveSubPage: (page: string) => void;
 };
 
+const linkMap: Record<string, string> = {
+  'Create Article': '/dashboard/create-article',
+  'Generated Articles': '/dashboard/generated-articles'
+};
+
 export default function Sidebar() {
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
@@ -67,10 +75,11 @@ export default function Sidebar() {
       <nav className="flex flex-col p-4 gap-2">
         {sidebarItems.map((item) => (
           <div key={item.name}>
-            {/* top-level button */}
             <button
               onClick={() =>
-                item.subItems ? toggleSubItems(item.name) : setActiveSubPage(item.name)
+                item.subItems
+                  ? setExpandedItem(expandedItem === item.name ? null : item.name)
+                  : undefined
               }
               className={cn(
                 'flex items-center justify-between w-full p-2 text-sm rounded-md hover:bg-gray-100',
@@ -81,25 +90,19 @@ export default function Sidebar() {
                 <item.icon className="w-4 h-4" />
                 {item.name}
               </div>
-              {item.subItems &&
-                (expandedItem === item.name ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                ))}
+              {item.subItems && (
+                expandedItem === item.name
+                  ? <ChevronUp className="w-4 h-4" />
+                  : <ChevronDown className="w-4 h-4" />
+              )}
             </button>
 
-            {/* sub-items */}
             {item.subItems && expandedItem === item.name && (
               <div className="ml-6 mt-1 flex flex-col gap-1">
                 {item.subItems.map((sub) => (
                   <Link
                     key={sub.name}
-                    href={
-                      sub.name === "Generated Articles"
-                        ? "/dashboard/generatedarticles"
-                        : "#"
-                    }
+                    href={linkMap[sub.name] ?? '#'}
                     className="text-left text-sm text-gray-600 hover:text-black py-0.5"
                   >
                     {sub.name}
@@ -111,5 +114,5 @@ export default function Sidebar() {
         ))}
       </nav>
     </aside>
-  )
+  );
 }
