@@ -2,6 +2,8 @@
 
 'use client';
 import { useState } from 'react';
+import LiveChatSupoort from './LiveChatSupport';
+
 type Row = {
   id: number;
   title: string;
@@ -140,7 +142,7 @@ type Row = {
       <table className="min-w-full text-sm">
         <thead>
           <tr className="border-b font-semibold text-gray-700">
-            <th className="p-2 w-10">
+            <th className="p-2 text-center">
               <input
                 type="checkbox"
                 checked={allChecked}
@@ -155,10 +157,23 @@ type Row = {
               <div className="flex items-center gap-1">
                 {/* the up/down glyphs */}
                 <span className="flex flex-col leading-none text-[10px] text-gray-500">
-                  {/* U+25B3  △ */}
-                  <span className="text-[10px] text-gray-500 -ml-0.5">△</span>
-                  {/* U+25BD  ▽ */}
-                  <span className='text-[10px] text-gray-500 -ml-0.5'>▽</span>
+                  {/* Up */}
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="5,0 10,6 0,6" />
+                  </svg>
+
+                  {/* Down */}
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500 -mt-[2px]"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="0,0 10,0 5,6" />
+                  </svg>
                 </span>
                 Keyword&nbsp;[Traffic]
               </div>
@@ -167,10 +182,23 @@ type Row = {
               <div className="flex items-center gap-1">
               {/* the up/down glyphs */}
                 <span className="flex flex-col leading-none text-[10px] text-gray-500">
-                  {/* U+25B3  △ */}
-                  <span className="text-[10px] text-gray-500 -ml-0.5">△</span>
-                  {/* U+25BD  ▽ */}
-                  <span className='text-[10px] text-gray-500 -ml-0.5'>▽</span>
+                  {/* Up */}
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="5,0 10,6 0,6" />
+                  </svg>
+
+                  {/* Down */}
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500 -mt-[2px]"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="0,0 10,0 5,6" />
+                  </svg>
                 </span>
                 Words
               </div>
@@ -179,12 +207,24 @@ type Row = {
               <div className="flex items-center gap-1">
               {/* the up/down glyphs */}
                 <span className="flex flex-col leading-none text-[10px] text-gray-500">
-                  {/* U+25B3  △ */}
-                  <span className="text-[10px] text-gray-500 -ml-0.5">△</span>
-                  {/* U+25BD  ▽ */}
-                  <span className='text-[10px] text-gray-500 -ml-0.5'>▽</span>
+                  {/* Up */}
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="5,0 10,6 0,6" />
+                  </svg>
+                  <svg
+                    className="h-2.5 w-2.5 fill-gray-500 -mt-[2px]"
+                    viewBox="0 0 10 6"
+                    aria-hidden
+                  >
+                    <polygon points="0,0 10,0 5,6" />
+                  </svg>
                 </span>
-              </div>Created On
+                Created On
+              </div>
             </th>
             <th className="p-2 text-left">Action
             </th>
@@ -195,7 +235,7 @@ type Row = {
         <tbody>
           {visibleRows.map((row) => (
             <tr key={row.id} className="border-b last:border-none hover:bg-gray-50">
-              <td className="p-2">
+              <td className="p-2 text-center">
                 <input
                   type="checkbox"
                   checked={selected.includes(row.id)}
@@ -209,7 +249,15 @@ type Row = {
               <td className="p-2">
                 <button className="text-blue-600 hover:underline">View</button>
               </td>
-              <td className="p-2 text-center">🌐</td>
+              <td className="p-2 text-center">🌐
+                <svg
+                aria-hidden
+                className="inline h-1.5 w-1.5 fill-black ml-1 align-middle"
+                viewBox="0 0 6 4"
+                >
+                <polygon points="0,0 6,0 3,4" />
+                </svg>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -250,6 +298,7 @@ type Row = {
           </span>
       </div>
     </div>
+    <LiveChatSupoort />
   </>
 );
 }

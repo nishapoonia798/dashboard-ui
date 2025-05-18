@@ -63,9 +63,7 @@ export default function Sidebar() {
    const [activeSubPage, setActiveSubPage] = useState<string | null>(null)
 
     return (
-    <aside className="w-64 bg-white border-r h-screen fixed overflow-y-auto">
-      <h1 className="p-4 font-bold text-lg border-b">My Dashboard</h1>
-
+    <aside className="w-64 bg-white border-r h-screen fixed overflow-y-auto pt-[90px]">
       <nav className="flex flex-col p-4 gap-2">
         {sidebarItems.map((item) => (
           <div key={item.name}>
