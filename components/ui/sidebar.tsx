@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react';
+import Link from 'next/link';
 
 import {
   FileText,
   Newspaper,
   Settings,
-  Link,
   NetworkIcon,
   Share2,
   Puzzle,
@@ -49,12 +49,18 @@ const sidebarItems = [
   {name: "Profile", icon: User, href: "#"},
 ]
 
-export default function Sidebar({setActiveSubPage }: { setActiveSubPage: (page: string) => void }) {
+type SidebarProps = {
+  setActiveSubPage: (page: string) => void;
+};
+
+export default function Sidebar() {
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
   const toggleSubItems = (name: string) => {
     setExpandedItem(expandedItem === name ? null : name)
   }
+
+   const [activeSubPage, setActiveSubPage] = useState<string | null>(null)
 
     return (
     <aside className="w-64 bg-white border-r h-screen fixed overflow-y-auto">
@@ -89,13 +95,17 @@ export default function Sidebar({setActiveSubPage }: { setActiveSubPage: (page: 
             {item.subItems && expandedItem === item.name && (
               <div className="ml-6 mt-1 flex flex-col gap-1">
                 {item.subItems.map((sub) => (
-                  <button
+                  <Link
                     key={sub.name}
-                    onClick={() => setActiveSubPage(sub.name)}
+                    href={
+                      sub.name === "Generated Articles"
+                        ? "/dashboard/generatedarticles"
+                        : "#"
+                    }
                     className="text-left text-sm text-gray-600 hover:text-black py-0.5"
                   >
                     {sub.name}
-                  </button>
+                  </Link>
                 ))}
               </div>
             )}

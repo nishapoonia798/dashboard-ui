@@ -1,5 +1,6 @@
 import Sidebar from "@/components/ui/Sidebar";
-import DashboardTable from "@/components/DashboardTable";
+import DashboardTable from "@/components/ui/DashboardTable";
+import GeneratedArticles from './generated-articles/GeneratedArticles';
 
 export default function DashboardPage() {
   return (
