@@ -1,9 +1,6 @@
 'use client'
 import { useState } from 'react';
 import Link from 'next/link';
-import GeneratedArticles
-  from '@/app/dashboard/generated-articles/GeneratedArticles';
-import CreateArticle from '@/app/dashboard/generated-articles/CreateArticle';
 import { usePathname } from 'next/navigation';
 import {
   FileText,
