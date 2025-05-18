@@ -1,6 +1,6 @@
 // app/dashboard/generated-articles/page.tsx
 'use client';
-import DashboardTable from '@/components/ui/DashboardTable';
+import DashboardTable from '../../../components/ui/DashboardTable';
 export default function GeneratedArticlesPage() {
   return (
     <main className="p-6"><DashboardTable /></main>

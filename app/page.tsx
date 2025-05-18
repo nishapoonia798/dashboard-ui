@@ -1,6 +1,6 @@
-import Sidebar from "@/components/ui/Sidebar";
-import DashboardTable from "@/components/ui/DashboardTable";
-import AccountHeader from "@/components/ui/AccountHeader";
+import Sidebar from "./../components/ui/Sidebar";
+import DashboardTable from "./../components/ui/DashboardTable";
+import AccountHeader from "./../components/ui/AccountHeader";
 
 export default function DashboardPage() {
   return (
