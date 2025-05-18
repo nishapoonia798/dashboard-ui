@@ -1,4 +1,4 @@
-import Sidebar from "@/components/ui/Sidebar";
+import Sidebar from "../../components/ui/Sidebar";
 import DashboardTable from "@/components/ui/DashboardTable";
 import GeneratedArticles from './generated-articles/page';
 
