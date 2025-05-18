@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+##🚀 AI-Powered Blogging Dashboard
 
-## Getting Started
+A small **Next .js 14 (App Router)** demo that lets you manage article keywords, generate content, and chat with support—all in one responsive dashboard.
 
-First, run the development server:
+Live demo → [https://my-dahboard.vercel.app](https://mydashboard.vercel.app)
+
+---
+
+### ✨ Features
+
+| Area                      | What it does                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Sidebar**               | Collapsible sections with nested links (Articles, Auto-Blog, Integrations…).                                        |
+| **Generated Articles**    | Paginated table with inline filters, bulk‐select check-boxes, sortable headers, “View” actions, and publish status. |
+| **Create Article**        | Form to enter title, keyword traffic, body, and “Publish Now” toggle.                                               |
+| **Live Chat Button**      | Floating action button that opens a mini chat window.                                                               |
+| **Account Header**        | Fixed top-left card with account switcher.                                                                          |
+| **TypeScript & Tailwind** | Fully typed components and utility-first styling.                                                                   |
+
+---
+
+### 🖥️ Local setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/<you>/ai-blog-dashboard.git
+cd ai-blog-dashboard
+cp .env.example .env.local    # fill if you add APIs later
+npm install
+npm run dev                   # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 📂 Project structure (high-level)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+│  layout.tsx           # root layout
+│  page.tsx             # main dashboard
+│
+├─ dashboard/
+│   ├─ generated-articles/
+│   │    ├─ page.tsx    # table view
+│   │─ create-article/
+│   │     ├─ page.tsx
+│   └─ …other routes…
+│
+├─ components/ui/
+│   ├─ Sidebar.tsx
+│   ├─ DashboardTable.tsx
+│   ├─ AccountHeader.tsx
+│   └─ LiveChatButton.tsx
+└─ lib/
+    utils.ts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 🛠️ Tech stack
 
-To learn more about Next.js, take a look at the following resources:
+* **Next.js 14** – App Router, React Server Components
+* **TypeScript** – strict mode
+* **Tailwind CSS** – utility styling
+* **Lucide-react** – icons
+* **Vercel** – zero-config deployment (free tier)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏗️ Build & deploy
 
-## Deploy on Vercel
+```bash
+# build locally
+npm run build
+npm start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# deploy (Vercel CLI)
+vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel automatically builds on every push to `main` and gives preview URLs for other branches.
+
+---
+
+### 🔐 Security & secrets
+
+* `.env*` files are **git-ignored**.
+* Add environment variables in **Vercel → Settings → Environment Variables** or **GitHub → Settings → Secrets**.
+* Branch protection and Dependabot alerts are enabled on the repo.
+
+---
+
+### 🙌 Contributing
+
+1. Fork and create a feature branch.
+2. Run `npm run lint` before pushing.
+3. Open a PR with a clear title and description.
+
+---
+
+### 📜 License
+
+MIT © 2025 Nisha Poonia
