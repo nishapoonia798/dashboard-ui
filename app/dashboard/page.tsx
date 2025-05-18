@@ -1,5 +1,5 @@
-import Sidebar from "@components/ui/Sidebar";
-import DashboardTable from "@/components/ui/DashboardTable";
+import Sidebar from "../../components/ui/Sidebar";
+import DashboardTable from "../../components/ui/DashboardTable";
 import GeneratedArticles from './generated-articles/page';
 
 export default function DashboardPage() {
