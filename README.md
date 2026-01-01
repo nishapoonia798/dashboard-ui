@@ -22,7 +22,7 @@ Live demo → [https://my-dahboard.vercel.app](https://mydashboard.vercel.app)
 ### 🖥️ Local setup
 
 ```bash
-git clone https://github.com/<you>/ai-blog-dashboard.git
+git clone https://github.com/<you>/dashboard-ui.git
 cd ai-blog-dashboard
 cp .env.example .env.local    # fill if you add APIs later
 npm install
